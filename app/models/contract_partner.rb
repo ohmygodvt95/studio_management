@@ -1,0 +1,2 @@
+class ContractPartner < ApplicationRecord
+end
