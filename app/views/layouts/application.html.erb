@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>StudioManagement</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= full_title yield(:title) %></title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/icon?family=Raleway:300,400,700,900" rel="stylesheet">
+    <%= stylesheet_link_tag "application", media: "all" %>
   </head>
-
   <body>
-    <%= yield %>
+  <%= render "layouts/header" %>
+  <%= render "layouts/sidebar" %>
+  <div class="pmd-sidebar-overlay" ></div>
+
+  <div id="wrapper" class="pmd-content">
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+  </div>
+
+  <%= render "layouts/footer" %>
+
+  <%= javascript_include_tag "application" %>
+  <% if File.exist? Rails.root.join("app/assets/javascripts/users", params[:controller] + ".js") %>
+    <%= javascript_include_tag ("users/" + params[:controller])%>
+  <% end %>
   </body>
 </html>
