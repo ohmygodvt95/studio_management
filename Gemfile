@@ -22,6 +22,7 @@ gem "bootstrap-kaminari-views"
 gem "carrierwave", "~> 1.0"
 gem "mini_magick", "3.8.0"
 gem "rails_param"
+gem "toastr-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
