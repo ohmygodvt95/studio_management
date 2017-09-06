@@ -24,8 +24,9 @@
   <%= render "layouts/footer" %>
 
   <%= javascript_include_tag "application" %>
-  <% if File.exist? Rails.root.join("app/assets/javascripts/users", params[:controller] + ".js") %>
-    <%= javascript_include_tag ("users/" + params[:controller])%>
+  <%= render "layouts/flash" %>
+  <% if File.exist? Rails.root.join("app/assets/javascripts", params[:controller] + ".js") %>
+    <%= javascript_include_tag params[:controller] %>
   <% end %>
   </body>
 </html>

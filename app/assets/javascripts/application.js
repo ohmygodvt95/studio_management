@@ -14,3 +14,4 @@
 //= require jquery
 //= require bootstrap/dist/js/bootstrap.min
 //= require propellerkit/dist/js/propeller.min
+//= require toastr
