@@ -19,10 +19,11 @@ gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "font-awesome-rails"
 gem "bootstrap-kaminari-views"
-gem "carrierwave", "~> 1.0"
+gem "carrierwave"
 gem "mini_magick", "3.8.0"
 gem "rails_param"
 gem "toastr-rails"
+gem "ransack"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

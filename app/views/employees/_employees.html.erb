@@ -1,0 +1,43 @@
+<div class="pmd-card pmd-z-depth">
+  <div class="table-responsive">
+    <table class="table table-hover pmd-table table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Role</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Level</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% employees.each do |employee| %>
+        <tr>
+          <td><%= employee.id %></td>
+          <td><%= employee.employee_role %></td>
+          <td><%= employee.name %></td>
+          <td><%= employee.email %></td>
+          <td><%= number_to_currency employee.level %></td>
+          <td>
+            <%= link_to employee_path(employee), title: "View info",
+              class: "btn btn-sm btn-primary pmd-btn-fab pmd-btn-raised pmd-ripple-effect" do %>
+              <i class="fa fa-eye"></i>
+            <% end %>
+            <%= link_to edit_employee_path(employee), title: "Edit",
+              class: "btn btn-sm btn-success pmd-btn-fab pmd-btn-raised pmd-ripple-effect" do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+            <%= link_to employee_path(employee), title: "Delete",
+              class: "btn btn-sm btn-danger pmd-btn-fab pmd-btn-raised pmd-ripple-effect", method: :delete,
+              data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= paginate employees, theme: "twitter-bootstrap-3" %>
