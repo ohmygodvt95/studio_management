@@ -1,0 +1,30 @@
+<%= provide :title, "Partners Management" %>
+
+<h1 class="section-title">
+  <span>Partners Management</span>
+</h1>
+<ol class="breadcrumb text-left">
+  <li class="active">Partners Management</li>
+</ol>
+
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-8">
+    <%= form_with url: partners_path, method: :get, local: true do %>
+      <div class="form-group pmd-textfield">
+        <label for="help1">
+          Search
+        </label>
+        <input type="text" name="query" class="form-control" placeholder="Type something...(email, name, description..)"
+          value="<%= @query %>"/>
+        <p class="help-block">Press enter to search </p>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-sm-12">
+    <%= render "partners", partners: @partners %>
+  </div>
+</div>
+<%= link_to new_partner_path, class: "btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-primary btn-new-employee",
+  title: "New partner" do %>
+  <i class="fa fa-plus"></i>
+<% end %>

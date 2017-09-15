@@ -24,6 +24,7 @@
     <%= render "employees", employees: @employees %>
   </div>
 </div>
-<%= link_to new_employee_path, class: "btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-primary btn-new-employee" do %>
+<%= link_to new_employee_path, class: "btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-primary btn-new-employee",
+  title: "New employee" do %>
   <i class="fa fa-plus"></i>
 <% end %>
