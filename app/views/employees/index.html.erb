@@ -1,0 +1,29 @@
+<%= provide :title, "Employees Management" %>
+
+<h1 class="section-title">
+  <span>Employees Management</span>
+</h1>
+<ol class="breadcrumb text-left">
+  <li class="active">Employees Management</li>
+</ol>
+
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-8">
+    <%= form_with url: employees_path, method: :get, local: true do %>
+      <div class="form-group pmd-textfield">
+        <label for="help1">
+          Search
+        </label>
+        <input type="text" name="query" class="form-control" placeholder="Type something...(email, name, role..)"
+          value="<%= @query %>"/>
+        <p class="help-block">Press enter to search </p>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-sm-12">
+    <%= render "employees", employees: @employees %>
+  </div>
+</div>
+<%= link_to new_employee_path, class: "btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-primary btn-new-employee" do %>
+  <i class="fa fa-plus"></i>
+<% end %>

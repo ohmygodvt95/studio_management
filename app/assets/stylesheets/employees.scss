@@ -1,0 +1,33 @@
+.employee {
+  padding: 10px 20px 150px 20px;
+  bottom: 0;
+
+  img {
+    margin-top: 20px;
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.employee-edit {
+  padding: 50px 20px 150px 20px;
+  bottom: 0;
+
+  img {
+    margin-top: 20px;
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 50px;
+  }
+  .col-sm-8 {
+    padding-top: 10px;
+  }
+}
+
+.btn-new-employee {
+  position: fixed;
+  right: 50px;
+  bottom: 100px;
+}

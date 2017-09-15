@@ -20,12 +20,19 @@
           <% end %>
         </li>
       </ul>
-    </li><!-- End user info -->
+    </li>
 
     <li>
       <%= link_to root_path, class: "pmd-ripple-effect active" do %>
         <i class="material-icons media-left pmd-sm">dashboard</i>
         <span class="media-body">Dashboard</span>
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to employees_path, class: "pmd-ripple-effect active" do %>
+        <i class="material-icons media-left pmd-sm">people</i>
+        <span class="media-body">Employees</span>
       <% end %>
     </li>
 

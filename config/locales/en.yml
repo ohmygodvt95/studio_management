@@ -1,2 +1,15 @@
 en:
   app_name: "Studio Management"
+  number:
+    currency:
+      format:
+        unit: " VNĐ"
+        delimiter: ","
+        separator: "."
+        precision: 0
+        format: "%n%u"
+  models:
+    user:
+      role:
+        administrator: "Manager"
+        employee: "Employee"

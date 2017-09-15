@@ -1,0 +1,93 @@
+<%= provide :title, "Edit: #{@employee.name}" %>
+
+<h1 class="section-title">
+  <span>Employee Edit</span>
+</h1>
+<ol class="breadcrumb text-left">
+  <li>
+    <%= link_to "Employees Management", employees_path %>
+  </li>
+  <li>
+    <%= link_to @employee.name, employee_path(@employee) %>
+  </li>
+  <li class="active">Edit</li>
+</ol>
+
+<div class="container-fluid pmd-card employee-edit">
+  <%= form_with model: @employee, url: employee_path(@employee), local: true do |f| %>
+    <div class="col-sm-4">
+      <img src="<%= @employee.avatar.thumb.url %>" alt="<%= @employee.email %>"
+        class="img-responsive center-block pmd-z-depth">
+      <%= f.file_field :avatar %>
+    </div>
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="form-group pmd-textfield">
+            <label for="regular1" class="control-label">
+              Name
+            </label>
+            <%= f.text_field :name, class: "form-control", required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="form-group pmd-textfield">
+            <label for="regular1" class="control-label">
+              Role
+            </label>
+            <%= f.select :role, User.roles_select, {}, class: "form-control", required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="form-group pmd-textfield">
+            <label for="regular1" class="control-label">
+              Level
+            </label>
+            <%= f.number_field :level, class: "form-control", required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="form-group pmd-textfield">
+            <label for="regular1" class="control-label">
+              Phone number
+            </label>
+            <%= f.number_field :level, class: "form-control", required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="form-group pmd-textfield">
+            <label for="regular1" class="control-label">
+              Address
+            </label>
+            <%= f.text_area :address, class: "form-control", required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <hr>
+          <div class="col-sm-6">
+            <button type="submit" class="btn btn-success btn-block btn-lg pmd-ripple-effect">
+              <i class="fa fa-save fa-fw"></i>
+              Update
+            </button>
+          </div>
+          <div class="col-sm-6">
+            <%= link_to employee_path(@employee), class: "btn btn-danger btn-block btn-lg pmd-ripple-effect" do %>
+              <i class="fa fa-backward fa-fw"></i>
+              Back
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
