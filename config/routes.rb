@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get "/pages/:page" => "static_pages#show"
 
   resources :employees
+  resources :partners
 end
