@@ -15,3 +15,11 @@
 //= require bootstrap/dist/js/bootstrap.min
 //= require propellerkit/dist/js/propeller.min
 //= require toastr
+//= require select2/dist/js/select2.min
+//= require propellerkit/components/select2/js/pmd-select2
+//= require_self
+$( document ).ready(function() {
+  $('.tags-form').select2({
+    theme: 'bootstrap'
+  });
+});

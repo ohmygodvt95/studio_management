@@ -1,0 +1,41 @@
+<div class="pmd-card pmd-z-depth">
+  <div class="table-responsive">
+    <table class="table table-hover pmd-table table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Owner</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% devices.each do |device| %>
+        <tr>
+          <td><%= device.id %></td>
+          <td><%= device.name %></td>
+          <td><%= device.user.name %></td>
+          <td><%= number_to_currency device.price %></td>
+          <td>
+            <%= link_to device_path(device), title: "View info",
+              class: "btn btn-sm btn-primary pmd-btn-fab pmd-btn-raised pmd-ripple-effect" do %>
+              <i class="fa fa-eye"></i>
+            <% end %>
+            <%= link_to edit_device_path(device), title: "Edit",
+              class: "btn btn-sm btn-success pmd-btn-fab pmd-btn-raised pmd-ripple-effect" do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+            <%= link_to device_path(device), title: "Delete",
+              class: "btn btn-sm btn-danger pmd-btn-fab pmd-btn-raised pmd-ripple-effect", method: :delete,
+              data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= paginate devices, theme: "twitter-bootstrap-3" %>
