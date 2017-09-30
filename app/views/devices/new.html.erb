@@ -1,0 +1,84 @@
+<%= provide :title, "Add a new device" %>
+
+<h1 class="section-title">
+  <span>New device</span>
+</h1>
+<ol class="breadcrumb text-left">
+  <li>
+    <%= link_to "Devices Management", devices_path %>
+  </li>
+  <li class="active">New</li>
+</ol>
+
+<div class="container-fluid pmd-card device-edit">
+  <h1 class="text-center">Device Information</h1>
+  <hr>
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= form_with model: @device, url: devices_path, local: true do |f| %>
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group pmd-textfield">
+              <label for="regular1" class="control-label">
+                Device Name
+              </label>
+              <%= f.text_field :name, class: "form-control", required: true %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group pmd-textfield">
+              <label for="regular1" class="control-label">
+                Owner
+              </label>
+              <%= f.select :user_id, User.all.map{|u| [u.name, u.id]},{},
+               {class: "tags-form form-control pmd-select2-tags"} %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group pmd-textfield">
+              <label for="regular1" class="control-label">
+                Price
+              </label>
+              <%= f.text_field :price, class: "form-control", required: true %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group pmd-textfield">
+              <label for="regular1" class="control-label">
+                Image
+              </label>
+              <br>
+              <%= f.file_field :avatar %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <hr>
+            <div class="col-sm-6">
+              <button type="submit" class="btn btn-success btn-block btn-lg pmd-ripple-effect">
+                <i class="fa fa-save fa-fw"></i>
+                Create
+              </button>
+              <br>
+            </div>
+            <div class="col-sm-6">
+              <%= link_to devices_path, class: "btn btn-danger btn-block btn-lg pmd-ripple-effect" do %>
+                <i class="fa fa-backward fa-fw"></i>
+                Back
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

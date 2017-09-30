@@ -1,0 +1,73 @@
+<%= provide :title, "Device: #{@device.name}" %>
+
+<h1 class="section-title">
+  <span>Device: <%= @device.name %></span>
+</h1>
+<ol class="breadcrumb text-left">
+  <li>
+    <%= link_to "Devices Management", devices_path %>
+  </li>
+  <li class="active"><%= @device.name %></li>
+</ol>
+
+<div class="container-fluid pmd-card partner-edit">
+  <div class="row">
+    <div class="col-sm-12">
+      <%= link_to edit_device_path(@device), class: "btn btn-primary pmd-rip pmd-ripple-effect pull-right" do %>
+        <i class="fa fa-cog fa-fw"></i> Edit
+      <% end %>
+    </div>
+  </div>
+  <h1 class="text-center">`<%= @device.name %>` Information</h1>
+  <hr>
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= form_with model: @device, url: devices_path, local: true do |f| %>
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group pmd-textfield">
+              <label for="regular1" class="control-label">
+                Device Name
+              </label>
+              <%= f.text_field :name, class: "form-control", readonly: true %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group pmd-textfield">
+              <label for="regular1" class="control-label">
+                Owner
+              </label>
+              <%= f.text_field :user, class: "form-control", value: @device.user.name, readonly: true %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group pmd-textfield">
+              <label for="regular1" class="control-label">
+                Price
+              </label>
+              <%= f.text_field :price, class: "form-control", readonly: true %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group pmd-textfield">
+              <label for="regular1" class="control-label">
+                Image
+              </label>
+              <br>
+              <br>
+              <img src="<%= @device.avatar.thumb.url %>" alt="<%= @device.name %>" class="img-responsive center-block pmd-z-depth">
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

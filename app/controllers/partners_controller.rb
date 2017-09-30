@@ -8,7 +8,6 @@ class PartnersController < ApplicationController
   end
 
   def show
-
   end
 
   def new

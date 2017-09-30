@@ -6,8 +6,8 @@
       <a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media"
          data-sidebar="true" aria-expandedhref="javascript:void(0);">
         <div class="media-left">
-          <img src="http://propeller.in/templates/admin-dashboard/themes/images/user-icon.png"
-               alt="Administrator">
+          <img src="<%= current_user.avatar.thumb.url %>"
+               alt="Administrator" height="64" class="img-circle">
         </div>
         <div class="media-body media-middle">Administrator</div>
         <div class="media-right media-middle"><i class="dic-more-vert dic"></i></div>
@@ -40,6 +40,13 @@
       <%= link_to partners_path, class: "pmd-ripple-effect active" do %>
         <i class="material-icons media-left pmd-sm">assignment_ind</i>
         <span class="media-body">Partners</span>
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to devices_path, class: "pmd-ripple-effect active" do %>
+        <i class="material-icons media-left pmd-sm">camera_enhance</i>
+        <span class="media-body">Devices</span>
       <% end %>
     </li>
 
